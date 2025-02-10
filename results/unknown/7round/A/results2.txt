@@ -1,0 +1,63 @@
+
+=== 不同自体训练集数量的性能评估 ===
+最佳自体训练集数量: 10000
+最佳Accuracy: 72.53%
+最佳Precision: 67.90%
+最佳Recall: 85.46%
+最佳F1 Score: 75.68%
+最佳False Positive Rate (FPR): 40.40%
+最佳Unknown Coverage: 100.00%
+
+=== 不同自体训练集数量的性能评估 ===
+最佳自体训练集数量: 30100
+最佳Accuracy: 73.70%
+最佳Precision: 71.13%
+最佳Recall: 79.78%
+最佳F1 Score: 75.21%
+最佳False Positive Rate (FPR): 32.38%
+最佳Unknown Coverage: 100.00%
+
+=== 不同自体训练集数量的性能评估 ===
+最佳自体训练集数量: 30100
+最佳Accuracy: 73.70%
+最佳Precision: 71.13%
+最佳Recall: 79.78%
+最佳F1 Score: 75.21%
+最佳False Positive Rate (FPR): 32.38%
+最佳Unknown Coverage: 100.00%
+
+=== 不同自体训练集数量的性能评估 ===
+最佳自体训练集数量: 30070
+最佳Accuracy: 73.70%
+最佳Precision: 71.13%
+最佳Recall: 79.78%
+最佳F1 Score: 75.21%
+最佳False Positive Rate (FPR): 32.38%
+最佳Unknown Coverage: 100.00%
+
+=== 不同自体训练集数量的性能评估 ===
+最佳自体训练集数量: 30070
+最佳Accuracy: 73.70%
+最佳Precision: 71.13%
+最佳Recall: 79.78%
+最佳F1 Score: 75.21%
+最佳False Positive Rate (FPR): 32.38%
+最佳Unknown Coverage: 100.00%
+
+=== 不同自体训练集数量的性能评估 ===
+最佳自体训练集数量: 52000
+最佳Accuracy: 74.84%
+最佳Precision: 74.03%
+最佳Recall: 76.52%
+最佳F1 Score: 75.26%
+最佳False Positive Rate (FPR): 26.84%
+最佳Unknown Coverage: 100.00%
+
+=== 不同自体训练集数量的性能评估 ===
+最佳自体训练集数量: 52000
+最佳Accuracy: 74.84%
+最佳Precision: 74.03%
+最佳Recall: 76.52%
+最佳F1 Score: 75.26%
+最佳False Positive Rate (FPR): 26.84%
+最佳Unknown Coverage: 100.00%

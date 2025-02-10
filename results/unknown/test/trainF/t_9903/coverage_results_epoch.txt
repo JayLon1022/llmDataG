@@ -1,0 +1,29 @@
+Unknown type: F
+Number of self samples: 1500
+Number of known samples: 160
+Number of unknown samples in train_set: 18184
+Number of unknown samples in test_set: 6062
+Epoch: 0
+Number of detectors: 160
+Number of unknown samples in train_set covered by detectors: 10081
+Number of unknown samples in test_set covered by detectors: 2757
+Epoch: 1
+Number of detectors: 581
+Number of unknown samples in train_set covered by detectors: 6309
+Number of unknown samples in test_set covered by detectors: 1755
+Epoch: 2
+Number of detectors: 2056
+Number of unknown samples in train_set covered by detectors: 8767
+Number of unknown samples in test_set covered by detectors: 2194
+Epoch: 3
+Number of detectors: 6995
+Number of unknown samples in train_set covered by detectors: 11094
+Number of unknown samples in test_set covered by detectors: 2481
+Epoch: 4
+Number of detectors: 111
+Number of unknown samples in train_set covered by detectors: 19
+Number of unknown samples in test_set covered by detectors: 0
+Epoch: 999
+Number of detectors: 9903
+Number of unknown samples in train_set covered by detectors: 14110
+Number of unknown samples in test_set covered by detectors: 4042

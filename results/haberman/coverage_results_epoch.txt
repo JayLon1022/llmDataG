@@ -1,0 +1,27 @@
+Number of non-self samples: 81
+Number of self samples: 225
+
+Epoch: 0
+Number of non-self samples covered by detectors: 12
+Number of self samples covered by detectors: 0
+
+Epoch: 1
+Number of non-self samples covered by detectors: 20
+Number of self samples covered by detectors: 0
+
+Epoch: 2
+Number of non-self samples covered by detectors: 24
+Number of self samples covered by detectors: 0
+
+Epoch: 3
+Number of non-self samples covered by detectors: 38
+Number of self samples covered by detectors: 0
+
+Epoch: 4
+Number of non-self samples covered by detectors: 31
+Number of self samples covered by detectors: 0
+
+Epoch: 5
+Number of non-self samples covered by detectors: 42
+Number of self samples covered by detectors: 0
+

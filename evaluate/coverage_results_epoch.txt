@@ -1,0 +1,69 @@
+Base:
+Unknown type: W
+Number of self samples in train_set: 20000
+Number of known samples: 160
+Evaluate:
+Number of self samples in test_set: 12000
+Number of non-self samples in test_set: 12000
+Number of unknown samples in test_set: 44
+
+Epoch: 0
+Number of detectors: 160
+Unknown covery:0.1364
+Accuracy: 0.6097
+Precision: 0.9289
+Recall: 0.2375
+F1 Score: 0.3783
+False Positive Rate (FPR): 0.0182
+Confusion Matrix:
+[[11782   218]
+ [ 9150  2850]]
+
+Epoch: 1
+Number of detectors: 1076
+Unknown covery:0.7727
+Accuracy: 0.5909
+Precision: 0.9199
+Recall: 0.1992
+F1 Score: 0.3274
+False Positive Rate (FPR): 0.0173
+Confusion Matrix:
+[[11792   208]
+ [ 9610  2390]]
+
+Epoch: 2
+Number of detectors: 7662
+Unknown covery:0.8182
+Accuracy: 0.6787
+Precision: 0.9467
+Recall: 0.3787
+F1 Score: 0.5410
+False Positive Rate (FPR): 0.0213
+Confusion Matrix:
+[[11744   256]
+ [ 7455  4545]]
+
+Epoch: 3
+Number of detectors: 16741
+Unknown covery:0.9318
+Accuracy: 0.6427
+Precision: 0.9302
+Recall: 0.3085
+F1 Score: 0.4633
+False Positive Rate (FPR): 0.0232
+Confusion Matrix:
+[[11722   278]
+ [ 8298  3702]]
+
+Epoch: 999
+Number of detectors: 25639
+Unknown covery:1.0000
+Accuracy: 0.7517
+Precision: 0.9092
+Recall: 0.5593
+F1 Score: 0.6925
+False Positive Rate (FPR): 0.0558
+Confusion Matrix:
+[[11330   670]
+ [ 5289  6711]]
+
