@@ -1,0 +1,14 @@
+Unknown type: S
+Number of detectors: 20656
+Self radius: 0.078
+Unknown covery:100.00%
+Number of train_Self: 12000
+Accuracy: 85.56%
+Precision: 84.92%
+Recall: 86.48%
+F1 Score: 85.69%
+False Positive Rate (FPR): 15.36%
+Confusion Matrix:
+[[4324  768]
+ [ 676 4232]]
+
