@@ -1,14 +1,14 @@
 Unknown type: W
 Number of detectors: 19969
-Self radius: 0.078
+Self radius: 0.066
 Unknown covery:100.00%
-Number of train_Self: 12000
-Accuracy: 80.52%
-Precision: 84.00%
-Recall: 75.40%
-F1 Score: 79.47%
-False Positive Rate (FPR): 14.36%
+Number of train_Self: 800
+Accuracy: 90.66%
+Precision: 91.29%
+Recall: 89.90%
+F1 Score: 90.59%
+False Positive Rate (FPR): 8.58%
 Confusion Matrix:
-[[3770  718]
- [1230 4282]]
+[[4495  429]
+ [ 505 4571]]
 

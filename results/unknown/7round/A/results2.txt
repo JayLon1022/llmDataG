@@ -106,3 +106,39 @@
 最佳F1 Score: 80.82%
 最佳False Positive Rate (FPR): 18.44%
 最佳Unknown Coverage: 100.00%
+
+=== 不同自体训练集数量的性能评估 ===
+最佳自体训练集数量: 5000
+最佳Accuracy: 76.68%
+最佳Precision: 97.75%
+最佳Recall: 54.62%
+最佳F1 Score: 70.08%
+最佳False Positive Rate (FPR): 1.26%
+最佳Unknown Coverage: 100.00%
+
+=== 不同自体训练集数量的性能评估 ===
+最佳自体训练集数量: 1000
+最佳Accuracy: 84.92%
+最佳Precision: 93.22%
+最佳Recall: 75.32%
+最佳F1 Score: 83.32%
+最佳False Positive Rate (FPR): 5.48%
+最佳Unknown Coverage: 100.00%
+
+=== 不同自体训练集数量的性能评估 ===
+最佳自体训练集数量: 700
+最佳Accuracy: 89.14%
+最佳Precision: 91.03%
+最佳Recall: 86.84%
+最佳F1 Score: 88.88%
+最佳False Positive Rate (FPR): 8.56%
+最佳Unknown Coverage: 100.00%
+
+=== 不同自体训练集数量的性能评估 ===
+最佳自体训练集数量: 720
+最佳Accuracy: 89.20%
+最佳Precision: 91.23%
+最佳Recall: 86.74%
+最佳F1 Score: 88.93%
+最佳False Positive Rate (FPR): 8.34%
+最佳Unknown Coverage: 100.00%
