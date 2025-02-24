@@ -1,0 +1,26 @@
+Number of detectors: 21709
+Self radius: 0.105
+Unknown covery:100.00%
+Number of train_Self: 450
+Accuracy: 85.28%
+Precision: 88.65%
+Recall: 80.92%
+F1 Score: 84.61%
+False Positive Rate (FPR): 10.36%
+Confusion Matrix:
+[[4046  518]
+ [ 954 4482]]
+
+Number of detectors: 21709
+Self radius: 0.105
+Unknown covery:100.00%
+Number of train_Self: 250
+Accuracy: 85.40%
+Precision: 86.11%
+Recall: 84.42%
+F1 Score: 85.26%
+False Positive Rate (FPR): 13.62%
+Confusion Matrix:
+[[4221  681]
+ [ 779 4319]]
+
