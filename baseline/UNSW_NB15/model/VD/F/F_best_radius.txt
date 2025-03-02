@@ -1,0 +1,11 @@
+Best self radius: 0.02
+Best metrics:
+Accuracy: 63.55%
+Precision: 79.75%
+Recall: 36.32%
+False Positive Rate: 9.22%
+Unknown Coverage Rate: 28.34%
+Confusion Matrix:
+[[1816  461]
+ [3184 4539]]
+F1 Score: 49.91%

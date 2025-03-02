@@ -1,0 +1,122 @@
+Ablation study of self radius for unknown type: D
+==================================================
+
+Self radius: 0.01
+Accuracy: 73.84%
+Precision: 82.95%
+Recall: 60.02%
+False Positive Rate: 12.34%
+Unknown Coverage Rate: 73.88%
+Confusion Matrix:
+[[3001  617]
+ [1999 4383]]
+F1 Score: 69.64%
+--------------------------------------------------
+
+Self radius: 0.02
+Accuracy: 66.54%
+Precision: 88.25%
+Recall: 38.16%
+False Positive Rate: 5.08%
+Unknown Coverage Rate: 18.99%
+Confusion Matrix:
+[[1908  254]
+ [3092 4746]]
+F1 Score: 53.28%
+--------------------------------------------------
+
+Self radius: 0.03
+Accuracy: 49.01%
+Precision: 38.46%
+Recall: 3.30%
+False Positive Rate: 5.28%
+Unknown Coverage Rate: 6.08%
+Confusion Matrix:
+[[ 165  264]
+ [4835 4736]]
+F1 Score: 6.08%
+--------------------------------------------------
+
+Self radius: 0.04
+Accuracy: 58.31%
+Precision: 79.57%
+Recall: 22.36%
+False Positive Rate: 5.74%
+Unknown Coverage Rate: 10.30%
+Confusion Matrix:
+[[1118  287]
+ [3882 4713]]
+F1 Score: 34.91%
+--------------------------------------------------
+
+Self radius: 0.05
+Accuracy: 65.81%
+Precision: 86.99%
+Recall: 37.18%
+False Positive Rate: 5.56%
+Unknown Coverage Rate: 44.12%
+Confusion Matrix:
+[[1859  278]
+ [3141 4722]]
+F1 Score: 52.09%
+--------------------------------------------------
+
+Self radius: 0.06
+Accuracy: 52.64%
+Precision: 60.63%
+Recall: 15.06%
+False Positive Rate: 9.78%
+Unknown Coverage Rate: 9.66%
+Confusion Matrix:
+[[ 753  489]
+ [4247 4511]]
+F1 Score: 24.13%
+--------------------------------------------------
+
+Self radius: 0.07
+Accuracy: 60.93%
+Precision: 75.91%
+Recall: 32.02%
+False Positive Rate: 10.16%
+Unknown Coverage Rate: 44.52%
+Confusion Matrix:
+[[1601  508]
+ [3399 4492]]
+F1 Score: 45.04%
+--------------------------------------------------
+
+Self radius: 0.08
+Accuracy: 62.57%
+Precision: 84.03%
+Recall: 31.04%
+False Positive Rate: 5.90%
+Unknown Coverage Rate: 16.71%
+Confusion Matrix:
+[[1552  295]
+ [3448 4705]]
+F1 Score: 45.33%
+--------------------------------------------------
+
+Self radius: 0.09
+Accuracy: 49.07%
+Precision: 21.12%
+Recall: 0.68%
+False Positive Rate: 2.54%
+Unknown Coverage Rate: 5.72%
+Confusion Matrix:
+[[  34  127]
+ [4966 4873]]
+F1 Score: 1.32%
+--------------------------------------------------
+
+Self radius: 0.1
+Accuracy: 63.05%
+Precision: 90.01%
+Recall: 29.36%
+False Positive Rate: 3.26%
+Unknown Coverage Rate: 26.10%
+Confusion Matrix:
+[[1468  163]
+ [3532 4837]]
+F1 Score: 44.28%
+--------------------------------------------------

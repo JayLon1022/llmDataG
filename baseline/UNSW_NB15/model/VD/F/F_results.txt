@@ -3,12 +3,12 @@ Number of test self samples: 5000
 Number of test non-self samples: 5000
 Number of unknown samples: 24246
 
-Accuracy: 50.00%
-Precision: 0.00%
-Recall: 0.00%
-False Positive Rate: 0.00%
-Unknown Coverage Rate: 0.02%
+Accuracy: 55.60%
+Precision: 83.33%
+Recall: 14.00%
+False Positive Rate: 2.80%
+Unknown Coverage Rate: 0.75%
 Confusion Matrix:
-[[   0    0]
- [5000 5000]]
-F1 Score: 0.00%
+[[ 700  140]
+ [4300 4860]]
+F1 Score: 23.97%
