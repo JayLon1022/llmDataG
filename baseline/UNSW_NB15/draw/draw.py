@@ -272,7 +272,7 @@ ml_values_W = [
 als_model = ['LLM','VD', 'VD+KNN', 'VD+SVM', 'VD+RF', 'VD+XGB']
 als_values_A = [
     [1, 0.9048, 0.9051, 0.9044, 0.9048, 0.0948],  # LLM的各项指标
-    [0.95, 0.93, 0.92, 0.93, 0.94, 0.06],  # VD的各项指标
+    [0.2069, 0.5369, 0.8773, 0.0858, 0.1563, 0.0012],  # VD的各项指标
     [0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000],  # VD+KNN的各项指标 (数据缺失)
     [0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000],  # VD+SVM的各项指标 (数据缺失)
     [0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000],  # VD+RF的各项指标 (数据缺失)
@@ -419,11 +419,11 @@ def plot_all_models(unknown_type):
 
 
 plot_all_models('A')
-plot_all_models('B')
-plot_all_models('D')
-plot_all_models('E')
-plot_all_models('F')
-plot_all_models('G')
-plot_all_models('R')
-plot_all_models('S')
-plot_all_models('W')
+# plot_all_models('B')
+# plot_all_models('D')
+# plot_all_models('E')
+# plot_all_models('F')
+# plot_all_models('G')
+# plot_all_models('R')
+# plot_all_models('S')
+# plot_all_models('W')
