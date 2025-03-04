@@ -78,7 +78,7 @@ class CNN_LSTM(nn.Module):
 def load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_path, test_unknown_path, train_unknown_path):
     
     train_self = pd.read_csv(train_self_path)
-    train_self = train_self.sample(n=1500, random_state=42)
+    train_self = train_self.sample(n=800, random_state=42)
     train_nonself = pd.read_csv(train_nonself_path)
     
     test_unknown = pd.read_csv(test_unknown_path)
@@ -410,19 +410,19 @@ def main():
         
         print(f"Results saved to {unknown_type}/cnn_lstm_results.txt")
 
-        # # 计算最佳阈值
-        # validation_data = pd.concat([train_data, test_data], axis=0).sample(frac=0.2, random_state=42)
-        # X_val_data = validation_data.drop('label', axis=1).values
-        # y_val_data = validation_data['label'].values
-        # X_val_seq = X_val_data.reshape(X_val_data.shape[0], 1, X_val_data.shape[1])
-        # best_result = find_optimal_threshold(model, X_val_seq, y_val_data, unknown, test_self_data)
-        # best_threshold, best_f1, best_unknown_cov, best_fpr, best_score = best_result
-        # with open(f'{unknown_type}/best_threshold_results.txt', 'w') as f:
-        #     f.write(f"Best Threshold: {best_threshold:.6f}\n")
-        #     f.write(f"F1 Score at Best Threshold: {best_f1:.4f}\n")
-        #     f.write(f"Unknown Coverage at Best Threshold: {best_unknown_cov:.4f}\n")
-        #     f.write(f"False Positive Rate at Best Threshold: {best_fpr:.4f}\n")
-        #     f.write(f"Combined Score: {best_score:.4f}\n")
+        # 计算最佳阈值
+        validation_data = pd.concat([train_data, test_data], axis=0).sample(frac=0.2, random_state=42)
+        X_val_data = validation_data.drop('label', axis=1).values
+        y_val_data = validation_data['label'].values
+        X_val_seq = X_val_data.reshape(X_val_data.shape[0], 1, X_val_data.shape[1])
+        best_result = find_optimal_threshold(model, X_val_seq, y_val_data, unknown, test_self_data)
+        best_threshold, best_f1, best_unknown_cov, best_fpr, best_score = best_result
+        with open(f'{unknown_type}/best_threshold_results.txt', 'w') as f:
+            f.write(f"Best Threshold: {best_threshold:.6f}\n")
+            f.write(f"F1 Score at Best Threshold: {best_f1:.4f}\n")
+            f.write(f"Unknown Coverage at Best Threshold: {best_unknown_cov:.4f}\n")
+            f.write(f"False Positive Rate at Best Threshold: {best_fpr:.4f}\n")
+            f.write(f"Combined Score: {best_score:.4f}\n")
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,14 @@
+Performance Metrics:
+Number of test self samples: 5000
+Number of test non-self samples: 5000
+Number of unknown samples: 7458
+
+Accuracy: 50.36%
+Precision: 89.13%
+Recall: 0.82%
+False Positive Rate: 0.10%
+Unknown Coverage Rate: 1.02%
+Confusion Matrix:
+[[  41    5]
+ [4959 4995]]
+F1 Score: 1.63%

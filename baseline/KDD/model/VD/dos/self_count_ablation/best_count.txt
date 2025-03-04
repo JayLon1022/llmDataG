@@ -1,0 +1,12 @@
+最佳自体样本数量: 16
+自体半径: 0.01
+最佳指标:
+Accuracy: 81.65%
+Precision: 93.27%
+Recall: 68.22%
+False Positive Rate: 4.92%
+Unknown Coverage Rate: 82.42%
+Confusion Matrix:
+[[3411  246]
+ [1589 4754]]
+F1 Score: 78.80%
