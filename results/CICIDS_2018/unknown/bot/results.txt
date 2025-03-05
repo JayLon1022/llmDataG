@@ -2,12 +2,12 @@ Number of detectors: 5893
 Self radius: 0.142
 Unknown covery:100.00%
 Number of train_Self: 57
-Accuracy: 77.69%
-Precision: 79.99%
+Accuracy: 77.66%
+Precision: 79.94%
 Recall: 73.86%
-F1 Score: 76.80%
-False Positive Rate (FPR): 18.48%
+F1 Score: 76.78%
+False Positive Rate (FPR): 18.54%
 Confusion Matrix:
-[[3693  924]
- [1307 4076]]
+[[3693  927]
+ [1307 4073]]
 

@@ -1,0 +1,8 @@
+Best Threshold: -5.359700
+Accuracy: 0.8224
+Precision: 0.8508
+Recall: 0.7653
+F1 Score: 0.8058
+Unknown Coverage: 0.9998
+False Positive Rate: 0.1294
+Combined Score: 0.6963

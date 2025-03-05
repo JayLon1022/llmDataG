@@ -11,6 +11,7 @@ import time
 np.random.seed(42)
 
 # 数据加载
+"""_summary_"""
 def load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_path,test_unknown_path,train_unknown_path):
     
     train_self = pd.read_csv(train_self_path)

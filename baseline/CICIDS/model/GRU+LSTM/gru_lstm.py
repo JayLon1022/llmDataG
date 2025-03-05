@@ -87,6 +87,9 @@ def load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_
 
 # 数据预处理函数
 def preprocess_data(train_data, test_data):
+    # 处理缺失值
+    train_data = train_data.fillna(train_data.mean())
+    test_data = test_data.fillna(test_data.mean())
     # 分离特征和标签
     X_train = train_data.drop('label', axis=1).values
     y_train = train_data['label'].values
