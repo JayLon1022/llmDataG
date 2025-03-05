@@ -14,7 +14,7 @@ np.random.seed(42)
 def load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_path,test_unknown_path,train_unknown_path):
     
     train_self = pd.read_csv(train_self_path)
-    train_self = train_self.sample(n=800,random_state=42)
+    train_self = train_self.sample(n=1000,random_state=42)
     train_nonself = pd.read_csv(train_nonself_path)
     
     test_unknown = pd.read_csv(test_unknown_path)
@@ -23,9 +23,9 @@ def load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_
     
     # 加载测试数据
     test_self = pd.read_csv(test_self_path)
-    test_self = test_self.sample(n=5000,random_state=42)
+    # test_self = test_self.sample(n=5000,random_state=42)
     test_nonself = pd.read_csv(test_nonself_path)
-    test_nonself = test_nonself.sample(n=5000,random_state=42)
+    # test_nonself = test_nonself.sample(n=5000,random_state=42)
     
     # 添加标签：自体为0，非自体为1
     train_self['label'] = 0
