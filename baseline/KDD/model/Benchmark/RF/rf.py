@@ -11,15 +11,13 @@ import time
 np.random.seed(42)
 
 # 数据加载
-def load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_path,test_unknown_path,train_unknown_path):
+def load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_path,unknown_path):
     
     train_self = pd.read_csv(train_self_path)
     train_self = train_self.sample(n=1040,random_state=42)
     train_nonself = pd.read_csv(train_nonself_path)
     
-    test_unknown = pd.read_csv(test_unknown_path)
-    train_unknown = pd.read_csv(train_unknown_path)
-    unknown = pd.concat([test_unknown, train_unknown], axis=0).reset_index(drop=True)
+    unknown = pd.read_csv(unknown_path)
     
     # 加载测试数据
     test_self = pd.read_csv(test_self_path)
@@ -149,20 +147,19 @@ def find_optimal_threshold(model, X_val, y_val, unknown_data, normal_data):
 
 # 主函数
 def main():
-    unknown_types = ["A", "B", "D", "E", "F", "G", "R", "S", "W"]
+    unknown_types = ["dos", "probe", "r2l", "u2r"]
     for unknown_type in unknown_types:
         # 设置数据路径
-        train_self_path = '../../../check/self/train_self_new.csv'
-        train_nonself_path = f'../../../check/train/trainset_{unknown_type}_nonself.csv'
-        test_self_path = '../../../check/self/test_self_new.csv'
+        train_self_path = '../../../check/self/train_self.csv'
+        train_nonself_path = f'../../../check/train/seed_{unknown_type}.csv'
+        test_self_path = '../../../check/self/test_self.csv'
         test_nonself_path = '../../../check/nonself/test_nonself.csv'
-        test_unknown_path = f'../../../check/unknown/test/test{unknown_type}.csv'
-        train_unknown_path = f'../../../check/unknown/train/train{unknown_type}.csv'
+        unknown_path = f'../../../check/unknown/4type/{unknown_type}.csv'
         
         # 加载数据
         print(f"处理未知类型: {unknown_type}")
         print("加载数据...")
-        train_data, test_data, unknown = load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_path,test_unknown_path,train_unknown_path)
+        train_data, test_data, unknown = load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_path,unknown_path)
         
         # 预处理数据
         print("预处理数据...")

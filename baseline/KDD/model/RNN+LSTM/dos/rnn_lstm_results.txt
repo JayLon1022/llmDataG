@@ -4,7 +4,7 @@ recall: 0.58
 f1: 0.7038834951456311
 unknown_coverage: 0.7565031051635742
 false_positive_rate: 0.06800000369548798
-training_time: 7.833791732788086
+training_time: 35.34560561180115
 confusion_matrix:
 [[4660  340]
  [2100 2900]]

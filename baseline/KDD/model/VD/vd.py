@@ -576,8 +576,8 @@ def find_best_parameters(combined_scores, self_radii, self_counts):
 
 
 
-self_radii = np.arange(0.001, 5.001, 0.001)
-self_counts = np.arange(1, 5000, 1)
+self_radii = np.arange(0.001, 1.001, 0.001)
+self_counts = np.arange(1, 1000, 1)
 
 
 for unknown_type in unknown_types:
