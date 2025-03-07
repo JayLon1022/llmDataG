@@ -1,0 +1,10 @@
+accuracy: 0.5324
+precision: 0.9196891191709845
+recall: 0.071
+f1: 0.1318232454511697
+unknown_coverage: 0.40209999680519104
+false_positive_rate: 0.006200000178068876
+training_time: 208.68583226203918
+confusion_matrix:
+[[4969   31]
+ [4645  355]]
