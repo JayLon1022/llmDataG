@@ -1,5 +1,0 @@
-Best Threshold: 0.500000
-F1 Score at Best Threshold: 0.9948
-Unknown Coverage at Best Threshold: 0.9914
-False Positive Rate at Best Threshold: 0.0022
-Combined Score: 0.7940

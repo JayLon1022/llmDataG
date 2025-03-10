@@ -1,8 +1,0 @@
-Best Threshold: nan
-Accuracy: 0.5302
-Precision: 0.0000
-Recall: 0.0000
-F1 Score: 0.0000
-Unknown Coverage: 0.0000
-False Positive Rate: 0.0000
-Combined Score: 0.0000
