@@ -1,0 +1,7 @@
+Best: r=0.051, c=60
+Accuracy: 74.78%
+Precision: 98.32%
+Recall: 50.42%
+FPR: 0.86%
+Unknown Coverage: 67.14%
+F1: 66.66%
