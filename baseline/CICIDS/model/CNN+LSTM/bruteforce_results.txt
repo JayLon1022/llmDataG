@@ -1,0 +1,12 @@
+Best Threshold: 0.558559
+
+Test Set Results:
+Accuracy: 0.5317
+Precision: 0.8972
+Recall: 0.0716
+F1 Score: 0.1326
+Unknown Coverage: 0.0000
+False Positive Rate: 0.0082
+Confusion Matrix:
+ [[4959   41]
+ [4642  358]]

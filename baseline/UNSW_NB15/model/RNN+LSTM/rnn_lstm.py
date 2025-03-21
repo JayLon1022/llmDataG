@@ -56,7 +56,7 @@ class RNN_LSTM(nn.Module):
 def load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_path,test_unknown_path,train_unknown_path):
     
     train_self = pd.read_csv(train_self_path)
-    train_self = train_self.sample(n=800,random_state=42)
+    train_self = train_self.sample(n=1000,random_state=42)
     train_nonself = pd.read_csv(train_nonself_path)
     
     test_unknown = pd.read_csv(test_unknown_path)
@@ -98,7 +98,7 @@ def preprocess_data(train_data, test_data):
     return X_train_seq, y_train, X_test_seq, y_test
 
 # 训练模型函数
-def train_model(model, train_loader, val_loader, criterion, optimizer, scheduler, num_epochs=20, patience=5):
+def train_model(model, train_loader, val_loader, criterion, optimizer, scheduler, num_epochs=20, patience=5, max_epochs=10):
     model.to(device)
     
     # 用于早停的变量
@@ -110,6 +110,11 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, scheduler
     val_losses = []
     
     for epoch in range(num_epochs):
+        # 检查是否达到最大轮次限制
+        if epoch >= max_epochs:
+            print(f'已达到最大训练轮次 {max_epochs}，停止训练')
+            break
+            
         model.train()
         train_loss = 0.0
         
@@ -143,7 +148,7 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, scheduler
         val_loss = val_loss / len(val_loader)
         val_losses.append(val_loss)
         
-        print(f'Epoch {epoch+1}, Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}')
+        print(f'Epoch {epoch+1}/{max_epochs}, Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}')
         
         # 更新学习率
         scheduler.step(val_loss)
@@ -350,7 +355,8 @@ def main():
             optimizer,
             scheduler,
             num_epochs=30, 
-            patience=5
+            patience=5,
+            max_epochs=10
         )
         training_time = time.time() - start_time
         print(f"Done training, time: {training_time:.2f} 秒")

@@ -56,7 +56,7 @@ class GRU_LSTM(nn.Module):
 def load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_path,test_unknown_path,train_unknown_path):
     
     train_self = pd.read_csv(train_self_path)
-    train_self = train_self.sample(n=800,random_state=42)
+    train_self = train_self.sample(n=1000,random_state=42)
     train_nonself = pd.read_csv(train_nonself_path)
     
     test_unknown = pd.read_csv(test_unknown_path)
@@ -101,13 +101,11 @@ def preprocess_data(train_data, test_data):
 def train_model(model, train_loader, val_loader, criterion, optimizer, scheduler, num_epochs=20, patience=5):
     model.to(device)
     
-    # 用于早停的变量
-    best_val_loss = float('inf')
-    early_stop_counter = 0
-    
     # 记录训练和验证损失
     train_losses = []
     val_losses = []
+    
+    best_val_loss = float('inf')
     
     for epoch in range(num_epochs):
         model.train()
@@ -148,16 +146,10 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, scheduler
         # 更新学习率
         scheduler.step(val_loss)
         
-        # 早停检查
+        # 保存最佳模型
         if val_loss < best_val_loss:
             best_val_loss = val_loss
-            early_stop_counter = 0
             torch.save(model.state_dict(), 'best_gru_lstm_model.pth')
-        else:
-            early_stop_counter += 1
-            if early_stop_counter >= patience:
-                print(f'Early stopping triggered after {epoch+1} epochs')
-                break
     
     # 加载最佳模型
     model.load_state_dict(torch.load('best_gru_lstm_model.pth'))
@@ -349,8 +341,8 @@ def main():
             criterion, 
             optimizer,
             scheduler,
-            num_epochs=30, 
-            patience=5
+            num_epochs=10, 
+            patience=5  
         )
         training_time = time.time() - start_time
         print(f"Done training, time: {training_time:.2f} 秒")

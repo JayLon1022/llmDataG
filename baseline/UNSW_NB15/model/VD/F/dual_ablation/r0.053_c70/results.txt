@@ -1,0 +1,6 @@
+Accuracy: 59.07%
+Precision: 88.86%
+Recall: 20.74%
+FPR: 2.60%
+Unknown Coverage: 0.86%
+F1: 33.63%

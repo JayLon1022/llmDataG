@@ -1,4 +1,5 @@
 Best Parameters:
+Self Radius: 1.00%
 Self Count: 90
 Accuracy: 40.98%
 Precision: 25.62%

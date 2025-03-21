@@ -213,19 +213,5 @@ def main():
         
         print(f"结果已保存到 {unknown_type}/xgboost_results.txt")
 
-        # 计算最佳阈值
-        validation_data = pd.concat([train_data, test_data], axis=0).sample(frac=0.2, random_state=42)
-        X_val_data = validation_data.drop('label', axis=1).values
-        y_val_data = validation_data['label'].values
-        best_result = find_optimal_threshold(model, X_val_data, y_val_data, unknown, test_self_data)
-        best_threshold, best_f1, best_unknown_cov, best_fpr, best_score = best_result
-        
-        with open(f'{unknown_type}/best_threshold_results.txt', 'w') as f:
-            f.write(f"Best Threshold: {best_threshold:.6f}\n")
-            f.write(f"F1 Score at Best Threshold: {best_f1:.4f}\n")
-            f.write(f"Unknown Coverage at Best Threshold: {best_unknown_cov:.4f}\n")
-            f.write(f"False Positive Rate at Best Threshold: {best_fpr:.4f}\n")
-            f.write(f"Combined Score: {best_score:.4f}\n")
-
 if __name__ == "__main__":
     main()

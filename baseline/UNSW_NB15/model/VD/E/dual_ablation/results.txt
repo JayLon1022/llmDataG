@@ -1,0 +1,425 @@
+Dual ablation study (E)
+
+r=0.049, c=40
+Accuracy: 50.27%
+Precision: 68.00%
+Recall: 1.02%
+FPR: 0.48%
+Unknown Coverage: 0.24%
+F1: 2.01%
+
+r=0.049, c=50
+Accuracy: 61.38%
+Precision: 90.41%
+Recall: 25.46%
+FPR: 2.70%
+Unknown Coverage: 1.62%
+F1: 39.73%
+
+r=0.049, c=60
+Accuracy: 59.43%
+Precision: 94.95%
+Recall: 19.92%
+FPR: 1.06%
+Unknown Coverage: 0.10%
+F1: 32.93%
+
+r=0.049, c=70
+Accuracy: 50.01%
+Precision: 51.02%
+Recall: 0.50%
+FPR: 0.48%
+Unknown Coverage: 0.06%
+F1: 0.99%
+
+r=0.049, c=80
+Accuracy: 59.87%
+Precision: 94.02%
+Recall: 21.08%
+FPR: 1.34%
+Unknown Coverage: 9.34%
+F1: 34.44%
+
+r=0.050, c=40
+Accuracy: 50.08%
+Precision: 53.85%
+Recall: 1.12%
+FPR: 0.96%
+Unknown Coverage: 2.86%
+F1: 2.19%
+
+r=0.050, c=50
+Accuracy: 61.95%
+Precision: 92.59%
+Recall: 25.98%
+FPR: 2.08%
+Unknown Coverage: 1.23%
+F1: 40.57%
+
+r=0.050, c=60
+Accuracy: 61.30%
+Precision: 94.91%
+Recall: 23.88%
+FPR: 1.28%
+Unknown Coverage: 0.50%
+F1: 38.16%
+
+r=0.050, c=70
+Accuracy: 61.03%
+Precision: 98.68%
+Recall: 22.36%
+FPR: 0.30%
+Unknown Coverage: 0.15%
+F1: 36.46%
+
+r=0.050, c=80
+Accuracy: 61.65%
+Precision: 92.43%
+Recall: 25.38%
+FPR: 2.08%
+Unknown Coverage: 1.72%
+F1: 39.82%
+
+r=0.051, c=40
+Accuracy: 62.97%
+Precision: 90.66%
+Recall: 28.92%
+FPR: 2.98%
+Unknown Coverage: 2.14%
+F1: 43.85%
+
+r=0.051, c=50
+Accuracy: 55.16%
+Precision: 92.57%
+Recall: 11.22%
+FPR: 0.90%
+Unknown Coverage: 0.65%
+F1: 20.01%
+
+r=0.051, c=60
+Accuracy: 58.24%
+Precision: 99.88%
+Recall: 16.50%
+FPR: 0.02%
+Unknown Coverage: 1.09%
+F1: 28.32%
+
+r=0.051, c=70
+Accuracy: 57.80%
+Precision: 92.03%
+Recall: 17.08%
+FPR: 1.48%
+Unknown Coverage: 2.89%
+F1: 28.81%
+
+r=0.051, c=80
+Accuracy: 61.34%
+Precision: 97.25%
+Recall: 23.34%
+FPR: 0.66%
+Unknown Coverage: 0.63%
+F1: 37.65%
+
+r=0.051, c=90
+Accuracy: 57.93%
+Precision: 94.60%
+Recall: 16.82%
+FPR: 0.96%
+Unknown Coverage: 5.91%
+F1: 28.56%
+
+r=0.052, c=40
+Accuracy: 54.79%
+Precision: 88.69%
+Recall: 10.98%
+FPR: 1.40%
+Unknown Coverage: 1.01%
+F1: 19.54%
+
+r=0.052, c=50
+Accuracy: 57.28%
+Precision: 88.40%
+Recall: 16.76%
+FPR: 2.20%
+Unknown Coverage: 0.52%
+F1: 28.18%
+
+r=0.052, c=60
+Accuracy: 60.81%
+Precision: 87.40%
+Recall: 25.26%
+FPR: 3.64%
+Unknown Coverage: 0.22%
+F1: 39.19%
+
+r=0.052, c=70
+Accuracy: 49.81%
+Precision: 44.63%
+Recall: 1.58%
+FPR: 1.96%
+Unknown Coverage: 1.80%
+F1: 3.05%
+
+r=0.052, c=80
+Accuracy: 63.04%
+Precision: 90.30%
+Recall: 29.22%
+FPR: 3.14%
+Unknown Coverage: 3.65%
+F1: 44.15%
+
+r=0.052, c=90
+Accuracy: 49.82%
+Precision: 12.50%
+Recall: 0.06%
+FPR: 0.42%
+Unknown Coverage: 0.12%
+F1: 0.12%
+
+r=0.053, c=40
+Accuracy: 50.10%
+Precision: 77.78%
+Recall: 0.28%
+FPR: 0.08%
+Unknown Coverage: 0.56%
+F1: 0.56%
+
+r=0.053, c=50
+Accuracy: 60.64%
+Precision: 92.36%
+Recall: 23.20%
+FPR: 1.92%
+Unknown Coverage: 0.96%
+F1: 37.08%
+
+r=0.053, c=60
+Accuracy: 49.99%
+Precision: 48.48%
+Recall: 0.32%
+FPR: 0.34%
+Unknown Coverage: 0.10%
+F1: 0.64%
+
+r=0.053, c=70
+Accuracy: 64.99%
+Precision: 91.71%
+Recall: 32.96%
+FPR: 2.98%
+Unknown Coverage: 6.49%
+F1: 48.49%
+
+r=0.053, c=80
+Accuracy: 60.96%
+Precision: 79.98%
+Recall: 29.24%
+FPR: 7.32%
+Unknown Coverage: 3.48%
+F1: 42.82%
+
+r=0.053, c=90
+Accuracy: 51.02%
+Precision: 59.17%
+Recall: 6.58%
+FPR: 4.54%
+Unknown Coverage: 4.12%
+F1: 11.84%
+
+r=0.053, c=30
+Accuracy: 50.14%
+Precision: 52.33%
+Recall: 3.14%
+FPR: 2.86%
+Unknown Coverage: 0.66%
+F1: 5.92%
+
+r=0.054, c=50
+Accuracy: 58.34%
+Precision: 92.90%
+Recall: 18.06%
+FPR: 1.38%
+Unknown Coverage: 0.62%
+F1: 30.24%
+
+r=0.054, c=60
+Accuracy: 56.77%
+Precision: 90.35%
+Recall: 15.16%
+FPR: 1.62%
+Unknown Coverage: 0.28%
+F1: 25.96%
+
+r=0.054, c=70
+Accuracy: 62.63%
+Precision: 89.35%
+Recall: 28.68%
+FPR: 3.42%
+Unknown Coverage: 3.14%
+F1: 43.42%
+
+r=0.054, c=80
+Accuracy: 49.07%
+Precision: 13.95%
+Recall: 0.36%
+FPR: 2.22%
+Unknown Coverage: 0.23%
+F1: 0.70%
+
+r=0.054, c=90
+Accuracy: 61.11%
+Precision: 85.86%
+Recall: 26.60%
+FPR: 4.38%
+Unknown Coverage: 2.04%
+F1: 40.62%
+
+r=0.054, c=30
+Accuracy: 49.71%
+Precision: 3.23%
+Recall: 0.02%
+FPR: 0.60%
+Unknown Coverage: 0.02%
+F1: 0.04%
+
+r=0.054, c=40
+Accuracy: 58.65%
+Precision: 95.86%
+Recall: 18.08%
+FPR: 0.78%
+Unknown Coverage: 4.19%
+F1: 30.42%
+
+r=0.055, c=50
+Accuracy: 66.05%
+Precision: 95.47%
+Recall: 33.70%
+FPR: 1.60%
+Unknown Coverage: 11.71%
+F1: 49.82%
+
+r=0.055, c=60
+Accuracy: 52.89%
+Precision: 87.53%
+Recall: 6.74%
+FPR: 0.96%
+Unknown Coverage: 7.60%
+F1: 12.52%
+
+r=0.055, c=70
+Accuracy: 65.40%
+Precision: 90.96%
+Recall: 34.20%
+FPR: 3.40%
+Unknown Coverage: 5.53%
+F1: 49.71%
+
+r=0.055, c=80
+Accuracy: 60.08%
+Precision: 96.67%
+Recall: 20.88%
+FPR: 0.72%
+Unknown Coverage: 1.60%
+F1: 34.34%
+
+r=0.055, c=90
+Accuracy: 49.74%
+Precision: 17.50%
+Recall: 0.14%
+FPR: 0.66%
+Unknown Coverage: 0.31%
+F1: 0.28%
+
+r=0.055, c=30
+Accuracy: 55.32%
+Precision: 87.78%
+Recall: 12.36%
+FPR: 1.72%
+Unknown Coverage: 1.84%
+F1: 21.67%
+
+r=0.055, c=40
+Accuracy: 60.09%
+Precision: 90.01%
+Recall: 22.70%
+FPR: 2.52%
+Unknown Coverage: 1.00%
+F1: 36.26%
+
+r=0.056, c=30
+Accuracy: 50.17%
+Precision: 58.25%
+Recall: 1.20%
+FPR: 0.86%
+Unknown Coverage: 3.67%
+F1: 2.35%
+
+r=0.056, c=40
+Accuracy: 50.07%
+Precision: 56.36%
+Recall: 0.62%
+FPR: 0.48%
+Unknown Coverage: 2.08%
+F1: 1.23%
+
+r=0.056, c=50
+Accuracy: 52.15%
+Precision: 91.83%
+Recall: 4.72%
+FPR: 0.42%
+Unknown Coverage: 0.17%
+F1: 8.98%
+
+r=0.056, c=60
+Accuracy: 62.05%
+Precision: 87.82%
+Recall: 27.98%
+FPR: 3.88%
+Unknown Coverage: 5.80%
+F1: 42.44%
+
+r=0.056, c=70
+Accuracy: 61.64%
+Precision: 89.59%
+Recall: 26.34%
+FPR: 3.06%
+Unknown Coverage: 1.25%
+F1: 40.71%
+
+r=0.057, c=30
+Accuracy: 72.66%
+Precision: 91.41%
+Recall: 50.02%
+FPR: 4.70%
+Unknown Coverage: 19.21%
+F1: 64.66%
+
+r=0.057, c=40
+Accuracy: 50.47%
+Precision: 58.13%
+Recall: 3.36%
+FPR: 2.42%
+Unknown Coverage: 11.98%
+F1: 6.35%
+
+r=0.057, c=50
+Accuracy: 60.83%
+Precision: 90.14%
+Recall: 24.32%
+FPR: 2.66%
+Unknown Coverage: 3.02%
+F1: 38.31%
+
+r=0.057, c=60
+Accuracy: 59.91%
+Precision: 91.81%
+Recall: 21.76%
+FPR: 1.94%
+Unknown Coverage: 1.20%
+F1: 35.18%
+
+r=0.057, c=70
+Accuracy: 62.48%
+Precision: 90.26%
+Recall: 27.98%
+FPR: 3.02%
+Unknown Coverage: 3.00%
+F1: 42.72%

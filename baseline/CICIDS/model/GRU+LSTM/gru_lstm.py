@@ -54,22 +54,19 @@ class GRU_LSTM(nn.Module):
         return out
 
 # 数据加载
-def load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_path,test_unknown_path,train_unknown_path):
-    
-    train_self = pd.read_csv(train_self_path)
-    train_self = train_self.sample(n=1500,random_state=42)
+def load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_path,unknown_path):
     train_nonself = pd.read_csv(train_nonself_path)
-    
-    test_unknown = pd.read_csv(test_unknown_path)
-    train_unknown = pd.read_csv(train_unknown_path)
-    unknown = pd.concat([test_unknown, train_unknown], axis=0).reset_index(drop=True)
+    train_self = pd.read_csv(train_self_path)
+    train_self = train_self.sample(n=len(train_nonself),random_state=42)
+
+    unknown = pd.read_csv(unknown_path)
     
     # 加载测试数据
     test_self = pd.read_csv(test_self_path)
     test_self = test_self.sample(n=5000,random_state=42)
     test_nonself = pd.read_csv(test_nonself_path)
     test_nonself = test_nonself.sample(n=5000,random_state=42)
-    
+
     # 添加标签：自体为0，非自体为1
     train_self['label'] = 0
     train_nonself['label'] = 1
@@ -78,18 +75,16 @@ def load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_
     
     # 合并训练集和测试集
     train_data = pd.concat([train_self, train_nonself], axis=0).reset_index(drop=True)
+    train_data = train_data.sample(frac=1, random_state=42).reset_index(drop=True)
     test_data = pd.concat([test_self, test_nonself], axis=0).reset_index(drop=True)
-    print("训练集分布：")
-    print(train_data['label'].value_counts())
-    print("\n测试集分布：")
-    print(test_data['label'].value_counts())
+    test_data = test_data.sample(frac=1, random_state=42).reset_index(drop=True)
     return train_data, test_data, unknown
 
 # 数据预处理函数
 def preprocess_data(train_data, test_data):
     # 处理缺失值
-    train_data = train_data.fillna(train_data.mean())
-    test_data = test_data.fillna(test_data.mean())
+    train_data = train_data.dropna()
+    test_data = test_data.dropna()
     # 分离特征和标签
     X_train = train_data.drop('label', axis=1).values
     y_train = train_data['label'].values
@@ -102,57 +97,46 @@ def preprocess_data(train_data, test_data):
     return X_train_seq, y_train, X_test_seq, y_test
 
 # 训练模型函数
-def train_model(model, train_loader, val_loader, criterion, optimizer, scheduler, num_epochs=20, patience=5):
-    model.to(device)
-    
-    # 用于早停的变量
+def train_model(model, train_loader, val_loader, criterion, optimizer, scheduler, num_epochs=50, patience=10):
     best_val_loss = float('inf')
     early_stop_counter = 0
-    
-    # 记录训练和验证损失
     train_losses = []
     val_losses = []
     
     for epoch in range(num_epochs):
         model.train()
         train_loss = 0.0
-        
-        # 训练阶段
         for features, labels in train_loader:
-            features, labels = features.to(device), labels.to(device)
-            
             outputs = model(features)
             loss = criterion(outputs, labels.unsqueeze(1).float())
-            
             optimizer.zero_grad()
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
             optimizer.step()
-            
             train_loss += loss.item()
         
         train_loss = train_loss / len(train_loader)
         train_losses.append(train_loss)
         
-        # 验证阶段
         model.eval()
         val_loss = 0.0
+        val_outputs = []
+        val_labels = []
         with torch.no_grad():
             for features, labels in val_loader:
-                features, labels = features.to(device), labels.to(device)
                 outputs = model(features)
                 loss = criterion(outputs, labels.unsqueeze(1).float())
                 val_loss += loss.item()
+                val_outputs.extend(outputs.sigmoid().numpy())
+                val_labels.extend(labels.numpy())
         
         val_loss = val_loss / len(val_loader)
         val_losses.append(val_loss)
         
         print(f'Epoch {epoch+1}, Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}')
         
-        # 更新学习率
         scheduler.step(val_loss)
         
-        # 早停检查
         if val_loss < best_val_loss:
             best_val_loss = val_loss
             early_stop_counter = 0
@@ -163,7 +147,6 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, scheduler
                 print(f'Early stopping triggered after {epoch+1} epochs')
                 break
     
-    # 加载最佳模型
     model.load_state_dict(torch.load('best_gru_lstm_model.pth'))
     
     return model, train_losses, val_losses
@@ -222,20 +205,23 @@ def evaluate_false_positive_rate(model, normal_data, threshold=0):
     return false_positive_rate
 
 # 评估模型性能
-def evaluate_model(model, test_loader):
+def evaluate_model(model, features, labels, threshold=0):
     model.eval()
+    dataset = IntrusionDataset(features, labels)
+    test_loader = DataLoader(dataset, batch_size=64)
+    
     all_preds = []
     all_labels = []
     
     with torch.no_grad():
-        for features, labels in test_loader:
-            features, labels = features.to(device), labels.to(device)
+        for batch_features, batch_labels in test_loader:
+            batch_features, batch_labels = batch_features.to(device), batch_labels.to(device)
             
-            outputs = model(features)
-            predicted = (outputs >= 0).float()
+            outputs = model(batch_features)
+            predicted = (outputs >= threshold).float()
             
             all_preds.extend(predicted.cpu().numpy())
-            all_labels.extend(labels.cpu().numpy())
+            all_labels.extend(batch_labels.cpu().numpy())
     
     all_preds = np.array(all_preds).flatten()
     all_labels = np.array(all_labels)
@@ -250,7 +236,7 @@ def evaluate_model(model, test_loader):
     return accuracy, precision, recall, f1, conf_matrix
 
 # 计算最佳阈值
-def find_optimal_threshold(model, X_val_seq, y_val, unknown_data, normal_data):
+def find_optimal_threshold(model, X_val_seq, y_val):
     val_dataset = IntrusionDataset(X_val_seq, y_val)
     val_loader = DataLoader(val_dataset, batch_size=64)
     
@@ -270,51 +256,42 @@ def find_optimal_threshold(model, X_val_seq, y_val, unknown_data, normal_data):
     all_labels = np.array(all_labels)
     
     # 尝试不同阈值
-    thresholds = np.linspace(np.min(all_scores), np.max(all_scores), 100)
+    thresholds = np.linspace(0, 1, 1000)
     results = []
     
     for threshold in thresholds:
         # 计算验证集上的F1分数
         predicted = (all_scores >= threshold).astype(float)
         f1 = f1_score(all_labels, predicted)
-        
-        # 计算未知覆盖率
-        unknown_cov = evaluate_unknown_coverage(model, unknown_data, threshold)
-        
-        # 计算误报率
-        fpr = evaluate_false_positive_rate(model, normal_data, threshold)
-        
+
         # 计算综合得分 (可以根据需要调整权重)
-        score = f1 * 0.4 + unknown_cov * 0.4 - fpr * 0.2
-        
-        results.append((threshold, f1, unknown_cov, fpr, score))
+        score = f1
+        results.append((threshold,f1,score))
     
     # 找到最佳阈值
-    best_result = max(results, key=lambda x: x[4])
+    best_result = max(results, key=lambda x: x[1])
     return best_result
-
 
 # 主函数
 def main():
-    unknown_types = ["bot", "brute", "dos", "ddos", "infiliteration", "sql_injection"]
+    unknown_types = ["bot", "bruteforce", "dos", "ddos", "infiltration", "sql_injection"]
     for unknown_type in unknown_types:
+    
         # 设置数据路径
         train_self_path = '../../check/self/train_self.csv'
-        train_nonself_path = f'../../check/train/unknown_{unknown_type}.csv'
+        train_nonself_path = f'../../check/train/seed_{unknown_type}.csv'
         test_self_path = '../../check/self/test_self.csv'
         test_nonself_path = '../../check/nonself/test_nonself.csv'
-        test_unknown_path = f'../../check/unknown/{unknown_type}.csv'
-        train_unknown_path = f'../../check/unknown/{unknown_type}.csv'
+        unknown_path = f'../../check/unknown/{unknown_type}.csv'
         
         # 加载数据
         print("Loading data...")
-        train_data, test_data, unknown = load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_path,test_unknown_path,train_unknown_path)
+        train_data, test_data, unknown = load_data(train_self_path, train_nonself_path, test_self_path, test_nonself_path,unknown_path)
         
         # 预处理数据
         print("Preprocessing data...")
         X_train, y_train, X_test, y_test = preprocess_data(train_data, test_data)
         
-        # 创建数据集和数据加载器
         # 将训练集分为训练集和验证集（80%训练，20%验证）
         train_size = int(0.8 * len(X_train))
         val_size = len(X_train) - train_size
@@ -325,18 +302,16 @@ def main():
         train_dataset = IntrusionDataset(X_train_split, y_train_split)
         val_dataset = IntrusionDataset(X_val, y_val)
         test_dataset = IntrusionDataset(X_test, y_test)
-        
         batch_size = 64
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
         val_loader = DataLoader(val_dataset, batch_size=batch_size)
         test_loader = DataLoader(test_dataset, batch_size=batch_size)
         
-         # 创建模型
-        input_size = X_train.shape[2]  # 特征维度
+        input_size = X_train.shape[2]
         model = GRU_LSTM(input_size)
         
-        # 计算正样本权重
-        pos_weight = torch.tensor([(y_train == 0).sum() / (y_train == 1).sum()])
+        # 权重
+        pos_weight = torch.tensor([(y_train == 0).sum() / [(y_train == 1).sum()] ])
         criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight.to(device))
         
         # 使用带权重衰减的优化器
@@ -348,71 +323,47 @@ def main():
         # 训练模型
         print("Training model...")
         start_time = time.time()
-        model, train_losses, val_losses = train_model(
+        model, train_losses, val_losses= train_model(
             model, 
             train_loader, 
             val_loader, 
             criterion, 
             optimizer,
             scheduler,
-            num_epochs=30, 
-            patience=5
+            num_epochs=50, 
+            patience=10
         )
         training_time = time.time() - start_time
         print(f"Done training, time: {training_time:.2f} 秒")
-        
-        # 绘制损失曲线
-        # plt.figure(figsize=(10, 6))
-        # plt.plot(train_losses, label='Training Loss')
-        # plt.plot(val_losses, label='Validation Loss')
-        # plt.xlabel('Epoch')
-        # plt.ylabel('Loss')
-        # plt.title('Training and Validation Loss')
-        # plt.legend()
-        # plt.grid(True)
-        # plt.show()
-        
-        # 评估模型
-        print("Evaluating model...")
-        accuracy, precision, recall, f1, conf_matrix = evaluate_model(model, test_loader)
-        unknown_coverage = evaluate_unknown_coverage(model, unknown)
-        test_self_data = test_data[test_data['label'] == 0]
-        false_positive_rate = evaluate_false_positive_rate(model, test_self_data)
-        
-        # 保存结果
-        results = {
-            'accuracy': accuracy,
-            'precision': precision,
-            'recall': recall,
-            'f1': f1,
-            'unknown_coverage': unknown_coverage,
-            'false_positive_rate': false_positive_rate,
-            'training_time': training_time,
-            'confusion_matrix': conf_matrix.tolist()
-        }
-        
-        # 将结果保存为文本文件
-        with open(f'{unknown_type}/gru_lstm_results.txt', 'w') as f:
-            for key, value in results.items():
-                if key != 'confusion_matrix':
-                    f.write(f"{key}: {value}\n")
-            f.write(f"confusion_matrix:\n{conf_matrix}\n")
-        
-        print("Results saved to gru_lstm_results.txt")
 
-        # 计算最佳阈值
-        validation_data = pd.concat([train_data, test_data], axis=0).sample(frac=0.2, random_state=42)
-        X_val_data = validation_data.drop('label', axis=1).values
-        y_val_data = validation_data['label'].values
-        X_val_seq = X_val_data.reshape(X_val_data.shape[0], 1, X_val_data.shape[1])
-        best_result = find_optimal_threshold(model, X_val_seq, y_val_data, unknown, test_self_data)
-        best_threshold, best_f1, best_unknown_cov, best_fpr, best_score = best_result
-        with open(f'{unknown_type}/best_threshold_results.txt', 'w') as f:
+        # 使用验证集找到最佳阈值
+        print("在验证集上寻找最佳阈值...")
+        best_result = find_optimal_threshold(model, X_val, y_val)
+        best_threshold = best_result[0]
+        
+        # 使用测试集进行最终评估
+        print("在测试集上进行最终评估...")
+        test_accuracy, test_precision, test_recall, test_f1, test_conf_matrix = evaluate_model(
+            model, X_test, y_test, threshold=best_threshold
+        )
+
+        # 在测试集上评估未知覆盖率和误报率
+        test_unknown_coverage = evaluate_unknown_coverage(model, unknown, threshold=best_threshold)
+        test_self_data = test_data[test_data['label'] == 0]
+        test_fpr = evaluate_false_positive_rate(model, test_self_data, threshold=best_threshold)
+        
+        with open(f'{unknown_type}_results.txt', 'w') as f:
             f.write(f"Best Threshold: {best_threshold:.6f}\n")
-            f.write(f"F1 Score at Best Threshold: {best_f1:.4f}\n")
-            f.write(f"Unknown Coverage at Best Threshold: {best_unknown_cov:.4f}\n")
-            f.write(f"False Positive Rate at Best Threshold: {best_fpr:.4f}\n")
-            f.write(f"Combined Score: {best_score:.4f}\n")
+            f.write("\nTest Set Results:\n")
+            f.write(f"Accuracy: {test_accuracy:.4f}\n")
+            f.write(f"Precision: {test_precision:.4f}\n")
+            f.write(f"Recall: {test_recall:.4f}\n")
+            f.write(f"F1 Score: {test_f1:.4f}\n")
+            f.write(f"Unknown Coverage: {test_unknown_coverage:.4f}\n")
+            f.write(f"False Positive Rate: {test_fpr:.4f}\n")
+            f.write(f"Confusion Matrix: {test_conf_matrix}\n")
+            
+
 
 if __name__ == "__main__":
     main()
