@@ -1,6 +1,0 @@
-Accuracy: 78.00%
-Precision: 96.51%
-Recall: 58.10%
-F1 Score: 72.53%
-False Alarm Rate: 2.10%
-Unknown Coverage: 8.28%
