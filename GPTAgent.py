@@ -16,8 +16,8 @@ class GPTAgent:
         self.model_name = model_name
         self.temperature = temperature
         self.model = OpenAI(
-            base_url="https://api.gptsapi.net/v1",
-            api_key="sk-CAw8e2efc8dff792ce816c5780c2c80aad2a214b49e3Smxs",
+            base_url="",
+            api_key="",
             timeout=300000
         )
         self.system_prompt = system_prompt

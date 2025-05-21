@@ -3,6 +3,7 @@
 /llama3.2
 /dataset
 /*/results
+/*/llmDataG/4o.ipynb
 
 *.csv
 *.dat
