@@ -21,6 +21,8 @@ This repository provides a pipeline for cloning and augmenting datasets using La
    conda activate llm
    ```
 
+## Structure
+
 ## Workflow
 
 1. **Prompt Template**: A customizable prompt guides the LLM in processing input vectors.

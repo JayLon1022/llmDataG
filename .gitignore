@@ -1,8 +1,11 @@
 /Meta-Llama-3-8B-Instruct
+/Llama-3.2-3B-instruct
 /llama3.2
 /dataset
+/results
 
 *.csv
 *.dat
 *.bak
 *.tmp
+*.xlsx
