@@ -1,9 +1,0 @@
-Best Parameters:
-Self Radius: 0.070
-Self Count: 30
-Accuracy: 86.84%
-Precision: 91.01%
-Recall: 81.76%
-F1 Score: 86.14%
-False Alarm Rate: 8.08%
-Unknown Coverage: 98.80%
