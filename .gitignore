@@ -2,7 +2,7 @@
 /Llama-3.2-3B-instruct
 /llama3.2
 /dataset
-/results
+/*/results
 
 *.csv
 *.dat
