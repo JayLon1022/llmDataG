@@ -4,7 +4,7 @@ This repository contains the code for the paper "LLM_based Immune Detection Meth
 
 ## Overview
 
-This repository provides a pipeline for cloning and augmenting datasets using Large Language Models (LLMs). Given a prompt template and input vectors, our system leverages the generative power of LLMs to produce augmented, variant vectors, facilitating data enrichment for training robust machine learning models
+This repository provides a pipeline for cloning and augmenting datasets using Large Language Models (LLMs). Given a prompt template and input vectors, our method leverages the generative power of LLMs to produce augmented, variant vectors, facilitating data enrichment for training robust machine learning models
 
 ## Installation
 
